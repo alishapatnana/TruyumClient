@@ -1,0 +1,9 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "PlaceOrder";
+}
+@{
+
+    var username = @Context.Session.GetString("Username");
+    <h1>Mr./Mrs. @username Your Order is Placed!!!</h1>
+}

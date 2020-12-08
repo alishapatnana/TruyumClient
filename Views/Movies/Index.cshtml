@@ -1,0 +1,78 @@
+﻿@model IEnumerable<truYumClient.Models.Movies>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-dark" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfLaunch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasTeaser)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfLaunch)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenreType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasTeaser)
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="@Url.Action("AddToCart","Cart",new { id = item.MovieId })">Add To Cart</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (@Context.Session.GetString("token") != null)
+{
+
+    <a class="btn btn-danger" href="@Url.Action("GetCartItems","Cart")">Get Cart Items</a>
+
+}
+
