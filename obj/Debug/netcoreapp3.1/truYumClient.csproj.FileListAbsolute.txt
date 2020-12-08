@@ -120,3 +120,4 @@ C:\Users\alish\source\repos\truYum-Movies\truYumClient\obj\Debug\netcoreapp3.1\R
 C:\Users\alish\source\repos\truYum-Movies\truYumClient\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Create.cshtml.g.cs
 C:\Users\alish\source\repos\truYum-Movies\truYumClient\obj\Debug\netcoreapp3.1\Razor\Views\Cart\GetCartItems.cshtml.g.cs
 C:\Users\alish\source\repos\truYum-Movies\truYumClient\obj\Debug\netcoreapp3.1\Razor\Views\Cart\PlaceOrder.cshtml.g.cs
+C:\Users\alish\source\repos\truYum-Movies\truYumClient\bin\Debug\netcoreapp3.1\truYumClient.yaml

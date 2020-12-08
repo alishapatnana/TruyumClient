@@ -34,11 +34,11 @@ namespace truYumClient.Controllers
             {
 
                 StringContent content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync("https://localhost:44306/api/Auth/GetUser", content);
+                var response = await httpClient.PostAsync("http://20.62.214.58/api/Auth/GetUser", content);
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 Item = JsonConvert.DeserializeObject<User>(apiResponse);
                 StringContent content1 = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
-                using (var response1 = await httpClient.PostAsync("https://localhost:44306/api/Auth/Login", content1))
+                using (var response1 = await httpClient.PostAsync("http://20.62.214.58/api/Auth/Login", content1))
                 {
                     if (!response1.IsSuccessStatusCode)
                     {

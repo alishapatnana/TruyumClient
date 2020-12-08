@@ -33,14 +33,14 @@ namespace truYumClient.Controllers
                 var contentType = new MediaTypeWithQualityHeaderValue("application/json");
                 client.DefaultRequestHeaders.Accept.Add(contentType);
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-                using (var response = await client.GetAsync("https://localhost:44392/api/Movies/" + id))
+                using (var response = await client.GetAsync("http://40.88.232.100/api/Movies/" + id))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     menuItem = JsonConvert.DeserializeObject<Movies>(apiResponse);
                 }
                 StringContent content = new StringContent(JsonConvert.SerializeObject(menuItem), Encoding.UTF8, "application/json");
 
-                using (var response = await client.PostAsync("https://localhost:44325/api/Cart/" + userid, content))
+                using (var response = await client.PostAsync("http://40.88.234.50/api/Cart/" + userid, content))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     menuItem = JsonConvert.DeserializeObject<Movies>(apiResponse);
@@ -73,7 +73,7 @@ namespace truYumClient.Controllers
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
                 //3localhost:44356/api/organization,353"https ://localhost:44353/api/organization"
-                using (var response = await client.GetAsync("https://localhost:44325/api/Cart/" + id))
+                using (var response = await client.GetAsync("http://40.88.234.50/api/Cart/" + id))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     menuItems = JsonConvert.DeserializeObject<List<Movies>>(apiResponse);
@@ -107,7 +107,7 @@ namespace truYumClient.Controllers
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
                 var userid = HttpContext.Session.GetInt32("Userid");
-                using (var response = await client.GetAsync("https://localhost:44325/api/Cart/user?userid=" + userid))
+                using (var response = await client.GetAsync("http://40.88.234.50/api/Cart/user?userid=" + userid))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
 
@@ -139,7 +139,7 @@ namespace truYumClient.Controllers
 
                 StringContent content = new StringContent(JsonConvert.SerializeObject(id), Encoding.UTF8, "application/json");
 
-                using (var response = await client.DeleteAsync("https://localhost:44325/api/Cart/" + userid + "?menuitemid=" + id))
+                using (var response = await client.DeleteAsync("http://40.88.234.50/api/Cart/" + userid + "?menuitemid=" + id))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
 

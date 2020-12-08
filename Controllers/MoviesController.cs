@@ -31,7 +31,7 @@ namespace truYumClient.Controllers
                 client.DefaultRequestHeaders.Accept.Add(contentType);
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-                using (var response = await client.GetAsync("https://localhost:44392/api/Movies"))
+                using (var response = await client.GetAsync("http://40.88.232.100/api/Movies"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     menuItems = JsonConvert.DeserializeObject<List<Movies>>(apiResponse);
@@ -75,7 +75,7 @@ namespace truYumClient.Controllers
                 using (var httpclinet = new HttpClient())
                 {
                     StringContent content = new StringContent(JsonConvert.SerializeObject(menuItem), Encoding.UTF8, "application/json");
-                    using (var response = await httpclinet.PostAsync("https://localhost:44392/api/Movies", content))
+                    using (var response = await httpclinet.PostAsync("http://40.88.232.100/api/Movies", content))
                     {
 
                         string apiResponse = await response.Content.ReadAsStringAsync();
